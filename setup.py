@@ -2,11 +2,6 @@ import os
 
 start_dir = os.getcwd()
 
-# mahimahi
-os.system("sudo sysctl -w net.ipv4.ip_forward=1")
-os.system("sudo add-apt-repository -y ppa:keithw/mahimahi")
-os.system("sudo apt-get -y update")
-os.system("sudo apt-get -y install mahimahi")
 
 # apache server
 os.system("sudo apt-get -y install apache2")
@@ -27,9 +22,7 @@ os.system("wget 'https://dl.google.com/linux/direct/google-chrome-stable_current
 os.system("sudo dpkg -i google-chrome-stable_current_amd64.deb")
 os.system("sudo apt-get -f -y install")
 
-# tensorflow
-os.system("sudo apt-get -y install python-pip python-dev")
-os.system("sudo pip install tensorflow")
+
 
 # tflearn
 os.system("sudo pip install tflearn")
