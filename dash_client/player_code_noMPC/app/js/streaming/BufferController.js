@@ -22,6 +22,7 @@ window.start_rebuffer = 0;
 MediaPlayer.dependencies.BufferController = function () {
     "use strict";
     var STALL_THRESHOLD = 0.15, // Xiaoqi_new 0.5,
+    var randomNumber = Math.floor(Math.random() * (100 - 50 + 1) +50)
     QUOTA_EXCEEDED_ERROR_CODE = 22,
     WAITING = "WAITING",
     READY = "READY",
@@ -469,14 +470,14 @@ MediaPlayer.dependencies.BufferController = function () {
 							// compute total QoE
 							totalQoE = totalBitrate - totalInstability - 3*(totalRebufferTime + startupTime);
 							self.debug.log("----------FINAL RESULTS: totalQoE="+totalQoE+", totalBitrate"+totalBitrate+ ", totalInstability"+totalInstability+", totalRebufferTime" + totalRebufferTime + ", startupTime" + startupTime);
-							
+							self.debug.log(randomNumber);
 							// Xiaoqi_new
-							finalResult = [totalQoE, totalBitrate, totalInstability, totalRebufferTime, startupTime];
+							finalResult = [totalQoE, totalBitrate, totalInstability, totalRebufferTime, startupTime,randomNumber];
 
 							// Xiaoqi_final
 							allResult = finalResult.concat(bufferedSegmentQuality, self.bwPredictor.getPastThroughput(), self.bwPredictor.getBandwidthEstLog());
                             json_allResult = {'bufferedSegmentQuality': bufferedSegmentQuality, 'pastThroughput': self.bwPredictor.getPastThroughput(), 'bandwidthEstLog': self.bwPredictor.getBandwidthEstLog()};
-							self.debug.log("----------FINAL RESULTS: pastThroughput length=" + self.bwPredictor.getPastThroughput().length + ", bandwidthEstLog length=" + self.bwPredictor.getBandwidthEstLog().length);
+							self.debug.log("----------FINAL RESULTS: pastThroughput length=" + self.bwPredictor.getPastThroughput().length + ", bandwidthEstLog length=" + self.bwPredictor.getBandwidthEstLog().length,randomNumber);
 							// Xiaoqi_final
 							// allResult = finalResult.concat(bufferedSegmentQuality);
 							// Xiaoqi_new
